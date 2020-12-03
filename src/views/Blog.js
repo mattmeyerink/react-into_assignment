@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import Post from '../components/Post';
+
 
 export default class Blog extends Component {
     constructor() {
@@ -19,23 +21,11 @@ export default class Blog extends Component {
     render() {
         return (
             <React.Fragment>
-            <div>
-                <h2>Welcome to the Blog Page!</h2>
-                {this.state.posts.map(p => (
-                    <div className="col-md-10" key={p.id}>
-                        <div className="card">
-                            <div className="card-body">
-                                <blockquote className="blockquote mb-0">
-                                    <p>
-                                        <a href="#">{p.body}</a>
-                                    </p>
-                                </blockquote>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </React.Fragment>
+                <div>
+                    <h2>Welcome to the Blog Page!</h2>
+                    {this.state.posts.map(p => ( <Post p={p} key={p.id}/>))} 
+                </div>
+            </React.Fragment>
         )
     }
 }
